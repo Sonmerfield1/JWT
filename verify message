@@ -1,0 +1,20 @@
+Here's the JWT example code without comments:
+
+```python
+import jwt
+import datetime
+
+secret_key = 'my_secret_key'
+
+payload = {
+    'user_id': 123,
+    'username': 'john_doe',
+    'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=30)
+}
+token = jwt.encode(payload, secret_key, algorithm='HS256')
+
+decoded_token = jwt.decode(token, secret_key, algorithms=['HS256'])
+
+print("Generated JWT token:", token)
+print("Decoded JWT token:", decoded_token)
+```
